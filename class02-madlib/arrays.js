@@ -11,7 +11,7 @@
  * Use "image1.png", "image2.png", and "image3.png" as the array values.
  */
 
-// Your code here
+// var images = ["image1.png", "image2.png", "image3.png"];
 
 /**
  * Question 2
@@ -19,7 +19,7 @@
  * in variable q2.
  */
 
-// Your code here
+// var q2 = images[0];
 
 /**
  * Question 3
@@ -27,7 +27,7 @@
  * and store it in variable q3
  */
 
-// Your code here
+// var q3 = images.length;
 
 /**
  * Question 4
@@ -36,7 +36,7 @@
  */
 
 
-// Your code here
+// var q4 = images[images.length];
 
 
 // ____________________________________________________________________________
@@ -54,7 +54,7 @@
  * an array of numbers with values 2, 3, 4, and 5.
  */
 
-// Your code here
+// var alphabet = ['a','b','c','d']
 
 
 /**
