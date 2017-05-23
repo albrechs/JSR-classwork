@@ -1,5 +1,6 @@
 var startupX = ['Uber', 'Google', 'Amazon', 'Apple', 'Facebook', 'Twitter'];
 var startupY = ['Slack', 'Trello', 'Tesla', 'Hyperloop', 'Harvest'];
+var favorites = [];
 
 function pickRandoms(array){	
 	var random1 = Math.floor((Math.random() * array.length));
@@ -21,6 +22,12 @@ function newStartup(){
 		document.getElementById('xForY').removeChild(document.getElementById('xForY').childNodes[0]);
 		document.getElementById('xForY').appendChild(startupNew);
 	}
+}
+
+function addFavorite(){
+	favorites.push(document.getElementById('xForY').childNodes[0]);
+	console.log('Added "' + document.getElementById('xForY').childNodes[0] + '" to favorites')
+	console.log(favorites)
 }
 
 
