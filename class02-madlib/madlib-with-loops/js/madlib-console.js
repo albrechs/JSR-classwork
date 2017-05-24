@@ -12,8 +12,9 @@ function pickRandoms(array){
 // console.log('A startup that is ' + startupX[random1] + ', but for ' + startupY[random2]);
 
 function newStartup(){
-	var startupNew = document.createTextNode('A startup that is ' + pickRandoms(startupX) + ', but for ' + pickRandoms(startupY));
-	console.log('A startup that is ' + pickRandoms(startupX) + ', but for ' + pickRandoms(startupY));
+	var output = 'A startup that is ' + pickRandoms(startupX) + ', but for ' + pickRandoms(startupY)
+	var startupNew = document.createTextNode(output);
+	console.log(output);
 
 	if (document.getElementById('xForY').childNodes.length === 0) {
 		document.getElementById('xForY').appendChild(startupNew);
