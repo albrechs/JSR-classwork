@@ -225,20 +225,16 @@ $(document).ready(function(){
 	document.getElementById('foobar_submit').onclick = function(){
 		for (i=1;i<101;i++){
 			if ((i % 3 == 0) && (i % 5 == 0)) {
-				document.getElementById('foobar_display').innerHTML += "FooBar" + '<br/>'
-				console.log(i)
+				document.getElementById('foobar_display').innerHTML += i + ' - FooBar' + '<br/>'
 			}
 			else if (i % 3 == 0) {
-				document.getElementById('foobar_display').innerHTML += "Foo" + '<br/>'
-				console.log(i)
+				document.getElementById('foobar_display').innerHTML += i + ' - Foo' + '<br/>'
 			}
 			else if (i % 5 == 0) {
-				document.getElementById('foobar_display').innerHTML += "Bar" + '<br/>'
-				console.log(i)
+				document.getElementById('foobar_display').innerHTML += i + ' - Bar' + '<br/>'
 			}
 			else {
 				document.getElementById('foobar_display').innerHTML += i + '<br/>'
-				console.log(i)
 			}
 		}
 		
