@@ -120,52 +120,66 @@ $(document).ready(function(){
 		var player1 = document.getElementById('rps_player1').value;
 		var player2 = document.getElementById('rps_player2').value;
 	
+		function validate(play) {
+			if ((play.toLowerCase() != 'rock') && (play.toLowerCase() != 'paper') && (play.toLowerCase() != 'scissors')) {
+				return false
+			}
+			else {
+				return true
+			}
+		}
+
 		function play(one, two) {
-			if (one == two) {
-				winner = "It's a tie. There are no winners here.";
-				return winner;
-				console.log(winner)
+			if ((validate(one)) && (validate(two))) {
+				if (one.toLowerCase() == two.toLowerCase()) {
+					winner = "It's a tie. There are no winners here.";
+					return winner;
+					console.log(winner)
+				}
+				else if (one.toLowerCase() == 'rock') {
+					if (two.toLowerCase() == 'paper') {
+						winner = "Player 2";
+						return winner;
+						console.log(winner)
+					}
+					else {
+						winner = "Player 1";
+						return winner;
+						console.log(winner)
+					}
+				}
+				else if (one.toLowerCase() == 'paper') {
+					if (two.toLowerCase() == 'scissors') {
+						winner = "Player 2";
+						return winner;
+						console.log(winner)
+					}
+					else {
+						winner = "Player 1";
+						return winner;
+						console.log(winner)
+					}
+				}
+				else if (one.toLowerCase() == 'scissors') {
+					if (two.toLowerCase() == 'rock') {
+						winner = "Player 2";
+						return winner;
+						console.log(winner)
+					}
+					else {
+						winner = "Player 1";
+						return winner;
+						console.log(winner)
+					}
+				}
+				else{
+					winner = "Something's gone horribly wrong.";
+					return winner;
+					console.log(winner)
+				}
 			}
-			else if (one == 'rock') {
-				if (two == 'paper') {
-					winner = "Player 2";
-					return winner;
-					console.log(winner)
-				}
-				else {
-					winner = "Player 1";
-					return winner;
-					console.log(winner)
-				}
-			}
-			else if (one == 'paper') {
-				if (two == 'scissors') {
-					winner = "Player 2";
-					return winner;
-					console.log(winner)
-				}
-				else {
-					winner = "Player 1";
-					return winner;
-					console.log(winner)
-				}
-			}
-			else if (one == 'scissors') {
-				if (two == 'rock') {
-					winner = "Player 2";
-					return winner;
-					console.log(winner)
-				}
-				else {
-					winner = "Player 1";
-					return winner;
-					console.log(winner)
-				}
-			}
-			else{
-				winner = "Something's gone horribly wrong.";
-				return winner;
-				console.log(winner)
+			else {
+				return "One of you didn't pick rock, paper, or scissors. No winners."
 			}
 		}
 
@@ -239,5 +253,4 @@ $(document).ready(function(){
 		}
 		
 	}
-
 });
