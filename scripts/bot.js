@@ -18,16 +18,16 @@ module.exports = function(robot) {
   	var cRand = Math.floor((Math.random() * 13) - 1);
   	var sRand = Math.floor((Math.random() * 4) - 1);
 
-  	return cards[cRand] + " of " + suits[sRand];
+  	return cards[cRand] + " of " + suits[sRand]
   });
 
-  robot.hear(/ /i, function(res) {
+  //robot.hear(/ /i, function(res) {
+  //	
+  //	return
+  //});
 
-  	return
-  });
+  //robot.hear(/ /i, function(res) {
 
-  robot.hear(/ /i, function(res) {
-
-  	return
-  });
+  //	return
+  //});
 }
