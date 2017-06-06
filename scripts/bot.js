@@ -3,15 +3,15 @@ module.exports = function(robot) {
     return res.send("Hi there!");
   });
 
-  robot.hear(/how are you?/i, function(res) {
+  robot.hear(/how are you?/, function(res) {
   	return res.send("Excuse me. I have to go. Somewhere there is a crime happening.");
   });
 
-  robot.hear(/what are your (/prime directives?/i, function(res) {
+  robot.hear(/what are your (/prime directives?/, function(res) {
   	return res.send("Serve the public trust, protect the innocent, uphold the law.");
   });
 
-  robot.hear(/pick a card!/i, function(res) {
+  robot.hear(/pick a card!/, function(res) {
   	var cards = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"];
   	var suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 
