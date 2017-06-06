@@ -21,10 +21,19 @@ module.exports = function(robot) {
   	return res.reply(cards[cRand] + " of " + suits[sRand])
   });
 
-  //robot.hear(/ /i, function(res) {
-  //	
-  //	return
-  //});
+  robot.hear(/do you know (.*)?/i, function(res) {
+  	var inputName;
+  	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
+
+  	if people.includes(inputName) {
+  		return res.send("Yes, of couse I know " + inputName)
+  	}
+  	else {
+  		return res.send("Nope, never heard of anyone called " + inputName)
+  	}
+  	
+  	
+  });
 
   //robot.hear(/ /i, function(res) {
 
