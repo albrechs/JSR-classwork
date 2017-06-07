@@ -21,18 +21,16 @@ module.exports = function(robot) {
   	return res.reply(cards[cRand] + " of " + suits[sRand])
   });
 
-  robot.hear(/do you know (.*)?/i, function(res) {
-  	var inputName;
+  robot.respond(/do you know (.*)?/i, function(res) {
+  	var inputName = res.match;
   	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
 
-  	if people.includes(inputName) {
-  		return res.send("Yes, of couse I know " + inputName)
+  	if (knownPeople.includes(inputName)) {
+  		return res.send("Yes, of couse I know " + inputName);
   	}
   	else {
-  		return res.send("Nope, never heard of anyone called " + inputName)
+  		return res.reply("Nope, never heard of anyone called " + inputName);
   	}
-  	
-  	
   });
 
   //robot.hear(/ /i, function(res) {
