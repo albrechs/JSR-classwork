@@ -21,15 +21,15 @@ module.exports = function(robot) {
   	return res.reply(cards[cRand] + " of " + suits[sRand])
   });
 
-  robot.respond(/do you know (.*)?/i, function(res) {
+  robot.hear(/do you know (.*)?/i, function(res) {
   	var inputName = res.match;
   	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
 
   	if (knownPeople.includes(inputName)) {
-  		return res.reply("Yes, of couse I know " + inputName)
+  		return res.send("Yes, of couse I know " + inputName)
   	}
   	else {
-  		return res.reply("Nope, never heard of anyone called " + inputName)
+  		return res.send("Nope, never heard of anyone called " + inputName)
   	}
   });
 
