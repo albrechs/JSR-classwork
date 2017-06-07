@@ -21,7 +21,7 @@ module.exports = function(robot) {
   	return res.reply(cards[cRand] + " of " + suits[sRand])
   });
 
-  robot.hear(/do you know (.*)?/i, function(res) {
+  robot.hear(/do you know (.*)/i, function(res) {
   	var inputName = res.match[1];
   	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
 
