@@ -22,7 +22,7 @@ module.exports = function(robot) {
   });
 
   robot.hear(/do you know (.*)?/i, function(res) {
-  	var inputName = res.match;
+  	var inputName = res.match[1];
   	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
 
   	if (knownPeople.includes(inputName)) {
