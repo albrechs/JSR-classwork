@@ -35,6 +35,6 @@ module.exports = function(robot) {
 
   robot.hear(/who are your friends?/i, function(res) {
   	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
-    return res.send("I have many, but my best friends are " + knownPeople.join() + ".")
+    return res.send("I have many, but my best friends are " + knownPeople.join(', ') + ".")
   });
 }
