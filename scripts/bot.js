@@ -26,7 +26,7 @@ module.exports = function(robot) {
   	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
 
   	if (knownPeople.includes(inputName)) {
-  		return res.send("Yes, of couse I know " + inputName);
+  		return res.reply("Yes, of couse I know " + inputName);
   	}
   	else {
   		return res.reply("Nope, never heard of anyone called " + inputName);
