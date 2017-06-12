@@ -23,9 +23,9 @@ module.exports = function(robot) {
 
   robot.hear(/do you know (.*)/i, function(res) {
   	var inputName = res.match[1];
-  	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
+  	var knownPeople = ["bert", "kirby", "keenan" , "sidney", "tom", "carter", "bernie", "eduardo", "pierre", "scott"];
 
-  	if (knownPeople.includes(inputName)) {
+  	if (knownPeople.indexOf(inputName.toLowerCase()) >= 0) {
   		return res.send("Yes, of couse I know " + inputName)
   	}
   	else {
@@ -37,4 +37,33 @@ module.exports = function(robot) {
   	var knownPeople = ["Bert", "Kirby", "Keenan" , "Sidney", "Tom", "Carter", "Bernie", "Eduardo", "Pierre", "Scott"];
     return res.send("I have many, but my best friends are " + knownPeople.join(', ') + ".")
   });
+
+	robot.hear(/home!/i, function(res) {
+		var request = require('request');
+  	var times = new Array;
+    var response = '';
+  
+  	var req = request('http://realtime.mbta.com/developer/api/v2/predictionsbystop?api_key=wX9NwuHnZU2ToO7GmGR9uw&stop=place-sstat&format=json', function (error, response, body) {
+    	if (!error && response.statusCode == 200) {
+    	  response = (JSON.parse(req.response.body));
+        console.log(response);
+    	 } else {
+    	  console.log(response.statusCode)
+    	 }
+  	});
+
+    //.mode[0].route[0].direction[0].trip
+    console.log(response);
+
+    if (typeof(response.mode) != 'undefined') {
+      response.forEach(function(obj) {
+        var d = new Date(0);
+        d.setUTCSeconds(obj.sch_dep_dt);
+        times.push(d.toLocaleTimeString())
+      return res.send(times.join(', '));
+			});
+    } else {
+      return res.send("There are no trains, better walk home.");
+    }
+	});
 }
