@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 # jsr-robocop
 
 jsr-robocop is a chat bot built on the [Hubot][hubot] framework as part of my journey learning Javascript.
 
-### Commands
+## Commands
 
-#### Greet the bot (3 Separate commands to start your conversation!)
+### Greet the bot (3 Separate commands to start your conversation!)
 
 Say hi:
 
@@ -21,13 +20,13 @@ What is Robocop programmed to do (By Detroit PD, not me):
 
 Be sure to get to know our new Robot friend.
 
-#### Draw!
+### Draw!
 
 Ever need to pick a random card from a standard 52 card deck? Robocop can take care of that for you.
 
     pick a card
 
-#### Find Robocop's friends
+### Find Robocop's friends
 
 List Robocop's friends:
 
@@ -37,7 +36,7 @@ Ask Robocop if they know a person:
 
     do you know ($NAME)
 
-#### Get home
+### Get home
 
 To see the next southbound trains from South Station (Red Line), run the following:
 
@@ -48,6 +47,3 @@ To see the next southbound trains from South Station (Red Line), run the followi
 Why bug your classmates yourself when Robocop can do it for you?
 
     send ($NAME) a message
-=======
-# ga-javascript
->>>>>>> f445f0e2e67715ebede4ee930d7f32b33d5f0590
