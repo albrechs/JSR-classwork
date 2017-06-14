@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # jsr-robocop
 
 jsr-robocop is a chat bot built on the [Hubot][hubot] framework as part of my journey learning Javascript.
@@ -47,3 +48,6 @@ To see the next southbound trains from South Station (Red Line), run the followi
 Why bug your classmates yourself when Robocop can do it for you?
 
     send ($NAME) a message
+=======
+# ga-javascript
+>>>>>>> f445f0e2e67715ebede4ee930d7f32b33d5f0590
