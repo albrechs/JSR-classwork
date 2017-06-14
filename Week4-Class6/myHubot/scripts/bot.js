@@ -39,35 +39,33 @@ module.exports = function(robot) {
   });
 
   robot.hear(/home!/i, function(res) {
-    var request = require('request');
-    var times = new Array;
-    var response = '';
-  
-    var req = request('http://realtime.mbta.com/developer/api/v2/predictionsbystop?api_key=wX9NwuHnZU2ToO7GmGR9uw&stop=place-sstat&format=json', function (error, response, body) {
+  var request = require('request');
+  var times = new Array;
+  var response = '';
+
+  var req = request('http://realtime.mbta.com/developer/api/v2/predictionsbystop?api_key=wX9NwuHnZU2ToO7GmGR9uw&stop=place-sstat&format=json', function (error, response, body) {
       if (!error && response.statusCode == 200) {
         // success, let's continue
-       } else {
-        console.log(response.statusCode)
-        return;
-       }
+      } else {
+        console.log(response.statusCode);
+        return
+      }
 
-       var response = (JSON.parse(req.response.body));
+      var response = (JSON.parse(req.response.body));
 
       if (typeof(response.mode) != 'undefined') {
         var subway = response.mode[0].route[0].direction[0].trip
-
+        
         subway.forEach(function(obj) {
-          var d = new Date(0);
-          d.setUTCSeconds(obj.sch_dep_dt);
-          times.push(d.toLocaleTimeString())
-        return res.send(times.join(', '));
+            var d = new Date(0);
+            d.setUTCSeconds(obj.sch_dep_dt);
+            times.push(d.toLocaleTimeString());
+            console.log(obj.sch_dep_dt + ' ' + d.toLocaleTimeString())
+            return res.send(times.join(', '));
         });
       } else {
         return res.send("There are no trains, better walk home.");
       }
     });
-
-    /*//.mode[0].route[0].direction[0].trip
-    */
   });
 }
