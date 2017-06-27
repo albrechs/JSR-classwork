@@ -1,17 +1,8 @@
 'use strict';
 var MovieApp = {
-	movies: []
+	movies: [],
+	baseEndpoint: 'http://www.omdbapi.com/'
 };
-
-MovieApp.baseEndpoint = 'http://www.omdbapi.com/';
-
-MovieApp.populateMovieList = function(movie){
-	var movies = MovieApp.movies;
-	for(vari=0;i<movies.length;i++){
-		var html = MovieApp.createMovie(movie)
-	}
-
-}
 
 MovieApp.createMovie = function(item) {
   var source = $('#movie_template').html();
@@ -20,35 +11,32 @@ MovieApp.createMovie = function(item) {
 }
 
 MovieApp.search = function(input) {
-	MovieApp.displayMovies = [];
-
 	var request = $.ajax({
 		url: MovieApp.baseEndpoint,
 		data: {s:input,apikey:"ada5c403"}
 	});
 	
 	request.done(function(data){
-		var movies = data.Search;
-		MovieApp.movies = movies;
-		console.log(MovieApp.movies)
-		$('#search_results').empty();
-		
-		
-		for(var i=0; i<movies.length; i++){
-			var tempImage = {
-				 imdbID: movies[i].imdbID,
-				 poster: movies[i].Poster 
+		if (data.Response == "False"){
+			$('#search_results').html('<center><h2>No Results Found!</h2><h3>(Search Better)</h3></center>')
+		} else {
+			var movies = data.Search;
+			console.log(data);
+			MovieApp.movies = movies;
+			console.log(MovieApp.movies)
+			$('#search_results').empty();
+			
+			for(var i=0; i<movies.length; i++){
+				var tempImage = {
+					imdbID: movies[i].imdbID,
+					poster: movies[i].Poster 
+				};
+				console.log(tempImage)
+				var movieHTML = MovieApp.createMovie(tempImage);
+				console.log(movieHTML)
+				$('#search_results').append(movieHTML);
 			};
-			console.log(tempImage)
-			var movieHTML = MovieApp.createMovie(tempImage);
-			console.log(movieHTML)
-			$('#search_results').append(movieHTML);
-		}
-
-
-
-
-		
+		};		
 	});
 }
 
@@ -92,14 +80,13 @@ $(function() {
 	$('#movie_form').submit(function(event){
 		event.preventDefault();
 		var input = $('#movie_search').val();
-		console.log(input);
+		console.log(typeof input);
 		MovieApp.search(input);	
-	})
+	});
 
 	$('#search_results').on('click', '.poster', function(){
 		var searchID = $(this).data('imdbid');
 		console.log(searchID)
 		MovieApp.showMoreInfo(searchID);
-	})
-
+	});
 });
