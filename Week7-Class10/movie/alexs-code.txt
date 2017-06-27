@@ -1,0 +1,63 @@
+```'use strict';
+var MovieApp = {};
+
+// This is the same as document ready btw.
+$(function() {
+  // This is where you register your event listeners
+  $('#movie_form').submit(function(event) {
+          event.preventDefault();
+          var input = $('#movie_search').val();
+          var request = $.ajax({
+              url: 'http://www.omdbapi.com/',
+              data: {s:input, apikey: 'ada5c403'}
+          });
+
+          request.done(function(data){
+              console.log(data.Search);
+              var movies = data.Search;
+              for(var i=0; i<movies.length; i++) {
+                  var image = movies[i].Poster;
+                  var $html = $('<a class="image" data-year="'+movies[i].Year+'" data-title="'+movies[i].Title+'"><img src="'+image+'"/></a>');
+                  $('body').append($html);    
+              }
+          });
+  });
+
+  $('body').on('click','.image',function(){
+      console.log($(this).data('title'));
+      console.log($(this).data('year'));
+      $('#title').html($(this).data('title'));
+      $('#year').html($(this).data('year'));
+      
+                      
+    });
+
+}); ```
+
+[9:22] 
+ ```<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie DB</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Movie App</h1>
+  <form id='movie_form'>
+  <input type="text" id="movie_search"/>
+  <input type="submit" id="movie_submit" value="Find the movie"/>
+  </form>
+  <div>
+      <p id='title'></p>
+      <p id='year'></p>
+      
+  </div>
+  
+  <script src="handlebars-v4.0.5.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="handlebars-v4.0.5.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
+
+</body>
+</html>```
