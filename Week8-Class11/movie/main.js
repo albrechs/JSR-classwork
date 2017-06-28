@@ -1,7 +1,8 @@
 'use strict';
 var MovieApp = {
 	movies: [],
-	baseEndpoint: 'http://www.omdbapi.com/'
+	baseEndpoint: 'http://www.omdbapi.com/',
+	noPoster: 'http://www.cineart.be/Documents/Document/Large/20120510153359-NoPosterAvailable.jpg'
 };
 
 MovieApp.createMovie = function(item) {
@@ -24,17 +25,23 @@ MovieApp.search = function(input) {
 			console.log(data);
 			MovieApp.movies = movies;
 			console.log(MovieApp.movies)
-			$('#search_results').empty();
+			$('#rig').empty();
 			
 			for(var i=0; i<movies.length; i++){
 				var tempImage = {
 					imdbID: movies[i].imdbID,
-					poster: movies[i].Poster 
+					poster: '' 
 				};
+
+				if (movies[i].Poster == 'N/A'){
+					tempImage.poster = MovieApp.noPoster
+				} else {
+					tempImage.poster = movies[i].Poster
+				}
 				console.log(tempImage)
 				var movieHTML = MovieApp.createMovie(tempImage);
 				console.log(movieHTML)
-				$('#search_results').append(movieHTML);
+				$('#rig').append(movieHTML);
 			};
 		};		
 	});
