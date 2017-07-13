@@ -112,16 +112,31 @@ Barnyard.push(bull, pig, boar, duck, chicken, cow, iceCube);
 console.log(Barnyard);
 
 Barnyard.forEach(function(animal) {
-  var animalElement = document.createElement('div')
-  animalElement.id = animal.name
-  animalElement.style.backgroundImage = 'url(' + animal.image + ')'
+  if (!(animal instanceof FarmAnimal)){
+  var cubeElement = document.createElement('div')
+  cubeElement.id = animal.name
+  cubeElement.style.backgroundImage = 'url(' + animal.image + ')'
   var bottom = Math.floor(Math.random() * 50);
-  animalElement.style.bottom = bottom + '%';
+  cubeElement.style.bottom = bottom + '%';
   var left = Math.floor(Math.random() * 90)
-  animalElement.style.left = left + '%';
-  animalElement.classList.add('animal')
-  animalElement.onclick = function() {
+  cubeElement.style.left = left + '%';
+  cubeElement.classList.add('cube')
+  cubeElement.onclick = function() {
    animal.talk();
   }
-  farm.appendChild(animalElement)
+  farm.appendChild(cubeElement)
+  } else {  
+    var animalElement = document.createElement('div')
+    animalElement.id = animal.name
+    animalElement.style.backgroundImage = 'url(' + animal.image + ')'
+    var bottom = Math.floor(Math.random() * 50);
+    animalElement.style.bottom = bottom + '%';
+    var left = Math.floor(Math.random() * 90)
+    animalElement.style.left = left + '%';
+    animalElement.classList.add('animal')
+    animalElement.onclick = function() {
+    animal.talk();
+    }
+    farm.appendChild(animalElement)
+  }
 })
