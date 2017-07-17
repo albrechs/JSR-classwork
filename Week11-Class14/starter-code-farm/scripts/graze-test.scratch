@@ -1,0 +1,27 @@
+var farm, animals, i, nowX, nowY, timer, props = {}, dx, dy, rad, cur;
+
+	function random(min, max) {
+		return Math.floor(MAth.random() * (max - min + 1)) + min;
+	}
+
+	function graze() {
+		for (i = 0; i < animals.length; i++){
+
+		}
+	}
+
+	window.onload = function() {
+		farm = Raphael('container-fluid', '100%', '100%');
+		animals = farm.set();
+
+		Barnyard.forEach(function(ani){
+			var bottom = Math.floor(Math.random() * 100);
+			var left = Math.floor(Math.random() * 100)
+			animals.push(farm.image(ani.image, 0, 0, 250, 250)).attr({
+				class: 'animal',
+				id: ani.name
+			})
+		});
+
+		//graze()
+	}

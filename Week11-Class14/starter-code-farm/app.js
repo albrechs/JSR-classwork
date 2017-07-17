@@ -101,6 +101,21 @@ FarmAnimal.prototype.run = function() {
   animalElement.style.left = left + '%';
 }
 
+FarmAnimal.prototype.graze = function(){
+  var animal = document.getElementById(this.name);   
+  var pos = 0;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      animal.style.top = pos + 'px'; 
+      animal.style.left = pos + 'px'; 
+    }
+  }
+}
+
 var bull = new Bull('Heff', 'longhorn', 'happy', 'pretty rough');
 var pig = new Pig('Wilbur', 'swine', 'happy', 'bearable');
 var boar = new WildBoar('Rex', 'boar', 'angry', 'Terrible');
@@ -129,9 +144,9 @@ Barnyard.forEach(function(animal) {
     var animalElement = document.createElement('div')
     animalElement.id = animal.name
     animalElement.style.backgroundImage = 'url(' + animal.image + ')'
-    var bottom = Math.floor(Math.random() * 50);
+    var bottom = Math.floor(Math.random() * 100);
     animalElement.style.bottom = bottom + '%';
-    var left = Math.floor(Math.random() * 90)
+    var left = Math.floor(Math.random() * 100)
     animalElement.style.left = left + '%';
     animalElement.classList.add('animal')
     animalElement.onclick = function() {
@@ -139,4 +154,4 @@ Barnyard.forEach(function(animal) {
     }
     farm.appendChild(animalElement)
   }
-})
+});

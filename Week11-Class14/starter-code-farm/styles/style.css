@@ -1,0 +1,35 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: url("http://i.imgur.com/mA1u1FC.jpg") no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.animal {
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  bottom: 100px;
+  cursor: pointer;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cube {
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  bottom: 100px;
+  cursor: pointer;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.farm {
+	position: absolute;
+	bottom: 0;
+	height: 45%;
+	width: 95%;	
+}

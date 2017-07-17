@@ -1,9 +1,10 @@
+/*
 // -------------------------
 // Dynamic Prototype Pattern
 // -------------------------
 
 // constructor function to create car objects
-/*function Car(make, model, year) {
+function Car(make, model, year) {
     this.make   = make;
     this.model  = model;
     this.year   = year;
@@ -52,5 +53,3 @@ ben.greet();
 ben.growl();
 tom.greet();
 tom.growl();
-
-
