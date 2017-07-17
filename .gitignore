@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 node_modules
-.DS_Store*
-.hubot_history
-=======
 .DS_Store
->>>>>>> f445f0e2e67715ebede4ee930d7f32b33d5f0590
+.hubot_history
+*.scratch
