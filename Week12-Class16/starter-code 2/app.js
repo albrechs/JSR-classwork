@@ -20,7 +20,8 @@ $(document).ready(function(){
 
     messageReference.push({
       message: message,
-      votes: 0
+      votes: 0,
+      author: 'trevor'
     });
   });
   
